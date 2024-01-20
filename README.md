@@ -1,6 +1,8 @@
 ![image](https://github.com/ssbreno/teddy-test/assets/8092325/91048ad1-6f9a-4919-93f4-0231f72ce031)
 
 
+[DEV] https://short-link-c41e08f1537b.herokuapp.com/docs
+
 ## Introduction
 
 Teddy Short Links
@@ -25,7 +27,7 @@ API documentation is available at [Local API Docs](http://localhost:3000/docs) o
 
 ## Getting Started
 
-To run the NESTJS TEMPLATE project on your local machine, follow these steps:
+To run the Teddy Short project on your local machine, follow these steps:
 
 1. **Environment Setup**: Create a `.env` file based on the provided `.env-local` template.
 2. **Install Dependencies**: Run `npm install` to install required dependencies.
@@ -45,3 +47,11 @@ npm test
 ```
 
 ## Conclusion
+
+The conclusion was to set up a simple yet comprehensive architecture to support the application's evolution towards something more robust. I would like to highlight some areas for improvement:
+
+Switch the infrastructure to AWS or GCP for better scalability.
+Migrate the database from Heroku to RDS.
+Implement Memcache to be used as a cache database for queries.
+Switch from TypeORM to DrizzleORM, as it appears to be a more powerful and performant ORM.
+Set up everything using Terraform or CloudFormation.
