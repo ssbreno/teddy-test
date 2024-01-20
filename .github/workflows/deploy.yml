@@ -21,15 +21,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install Dependencies
+      run: npm install
+
     - name: Lint, Test
       run: npm run lint
 
     - name: Install Dependencies
       run: npm run test:cov
-
-    - name: Install Dependencies
-      run: npm install
-
+      
     - name: Build
       run: npm run build
 
