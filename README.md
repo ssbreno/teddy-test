@@ -1,16 +1,16 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+![image](https://github.com/ssbreno/teddy-test/assets/8092325/91048ad1-6f9a-4919-93f4-0231f72ce031)
+
 
 ## Introduction
 
-NestJs Template
+Teddy Openfinance
 
 ## Technologies Used
 
 - Docker
 - Fastify and NestJS
 - JestJs (Testing framework)
+- DrizzleORM
 - PostgreSQL (Database)
 - Logging with Winston
 - Helmet
@@ -33,6 +33,7 @@ To run the NESTJS TEMPLATE project on your local machine, follow these steps:
 2. **Install Dependencies**: Run `pnpm install` to install required dependencies.
 3. **Build Containers**: Use `docker-compose build` to build the Docker containers.
 4. **Start Containers**: Execute `docker-compose up -d` to start the containers in detached mode.
+5. **Run Migrations**: 
 6. **Start the Application**: Use `pnpm run start` to start the application.
 
 You can import all endpoint configurations from the `/docs` folder into Postman for API testing.
@@ -44,3 +45,5 @@ To run the test suite, simply execute:
 ```bash
 pnpm test
 ```
+
+## Conclusion
