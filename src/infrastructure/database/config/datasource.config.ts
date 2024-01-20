@@ -13,6 +13,9 @@ export const dataSourceOptions: DataSourceOptions = {
   synchronize: false,
   logging: false,
   namingStrategy: new SnakeNamingStrategy(),
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 const dataSource = new DataSource(dataSourceOptions);

@@ -12,6 +12,9 @@ export const dataSourceOptions: DataSourceOptions = {
   migrations: ["src/infrastructure/database/migrations/*.{js,ts}"],
   migrationsTableName: "migrations",
   namingStrategy: new SnakeNamingStrategy(),
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 export const AppDataSource = new DataSource(dataSourceOptions);
