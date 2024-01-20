@@ -1,7 +1,7 @@
 import { Controller, Get } from "@nestjs/common";
 import { ApiOperation } from "@nestjs/swagger";
 import { HealthCheck, HealthCheckService } from "@nestjs/terminus";
-import { IgnoreLoggingInterceptor } from "../common";
+import { IgnoreLoggingInterceptor } from "../core";
 import { AppHealthIndicator } from "./app.health";
 
 @Controller(["healthcheck", "health"])

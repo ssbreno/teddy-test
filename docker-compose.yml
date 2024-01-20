@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   api:
-    container_name: nestjs-api
+    container_name: api
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,19 +10,27 @@ services:
       - ./:/app
     command: sh -c "npm run start"
     depends_on:
-      - postgres
-  postgres:
+      - teddy-db
+    networks:
+      - teddy-network
+
+  teddy-db:
     image: 'bitnami/postgresql'
-    container_name: btc-db
+    container_name: teddy-db
     environment:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=btc
+      - POSTGRESQL_DATABASE=teddy
     ports:
       - 5432:5432
     volumes:
       - 'postgresql_data:/bitnami/postgresql'
+    networks:
+      - teddy-network
 
 volumes:
   postgresql_data:
     driver: local
+
+networks:
+  teddy-network:

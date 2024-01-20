@@ -5,6 +5,9 @@
   "description": "Back-end template to use to build a NestJS application",
   "author": "Breno Sobral",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0 <20.0.0"
+  },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -19,12 +22,15 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --forceExit --detectOpenHandles --config ./test/jest-e2e.json",
     "doc": "npx @compodoc/compodoc -p tsconfig.json",
-    "doc:serve": "npm run doc && npx @compodoc/compodoc -s",
-    "sonar-scanner": "node node_modules/sonarqube-scanner/dist/bin/sonar-scanner",
-    "precommit": "lint-staged && npm run lint",
-    "prepush": "npm run test",
+    "doc:serve": "pnpm run doc && npx @compodoc/compodoc -s",
+    "precommit": "lint-staged && pnpm run lint",
+    "prepush": "pnpm run test",
     "prepare": "is-ci || husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "migrate:generate": "npm run typeorm -- -d ./orm.config.ts migration:generate ./src/infrastructure/database/migrations/$npm_config_name",
+    "migrate:run": "npm run typeorm migration:run -- -d orm.config.ts",
+    "migrate:revert": "npm run typeorm migration:revert -- -d orm.config.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
@@ -37,17 +43,28 @@
     "@nestjs/common": "^10.3.0",
     "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^10.3.0",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.3.0",
     "@nestjs/platform-fastify": "^10.3.0",
     "@nestjs/swagger": "^7.2.0",
     "@nestjs/terminus": "^10.2.0",
+    "@nestjs/typeorm": "^10.0.1",
+    "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "cli-color": "^2.0.3",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.2",
     "fastify": "^4.25.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.2",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.11.3",
+    "postgres": "^3.4.3",
     "reflect-metadata": "^0.1.14",
     "rxjs": "^7.8.1",
+    "tsx": "^4.7.0",
+    "typeorm": "^0.3.19",
     "uuidv4": "^6.2.13",
     "winston": "^3.11.0"
   },
@@ -73,7 +90,6 @@
     "jest": "^29.7.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.2.4",
-    "prisma": "^5.8.1",
     "semantic-release": "^22.0.12",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.4",
@@ -81,6 +97,7 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "typeorm-naming-strategies": "^4.1.0",
     "typescript": "^5.3.3"
   }
 }

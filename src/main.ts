@@ -1,4 +1,3 @@
-import fastifyHelmet from "@fastify/helmet";
 import {
   ClassSerializerInterceptor,
   INestApplication,
@@ -15,12 +14,12 @@ import {
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { useContainer } from "class-validator";
 import { AppModule } from "./app.module";
-import { HttpExceptionFilter, WinstonLogger } from "./common";
+import { HttpExceptionFilter, WinstonLogger } from "./core";
 import {
   PROJECT_DESCRIPTION,
   PROJECT_NAME,
   PROJECT_VERSION,
-} from "./common/constants";
+} from "./core/constants";
 
 const DEFAULT_PORT = 3000;
 const DEFAULT_API_PREFIX = "/api";
@@ -67,17 +66,6 @@ async function bootstrap() {
   });
   app.setGlobalPrefix(process.env.API_PREFIX || DEFAULT_API_PREFIX);
   setupSwagger(app);
-
-  app.register(fastifyHelmet, {
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: [`'self'`],
-        styleSrc: [`'self'`, `'unsafe-inline'`],
-        imgSrc: [`'self'`, "data:", "validator.swagger.io"],
-        scriptSrc: [`'self'`, `https: 'unsafe-inline'`],
-      },
-    },
-  });
 
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 

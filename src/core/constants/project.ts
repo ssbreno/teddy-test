@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 export const PROJECT_NAME =
   process.env.npm_package_name || process.env.PROJECT_NAME;
 export const PROJECT_DESCRIPTION =
