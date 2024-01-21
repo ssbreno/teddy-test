@@ -23,7 +23,7 @@ Teddy Short Links
 
 ## Documentation
 
-API documentation is available at [Local API Docs](https://short-link-c41e08f1537b.herokuapp.com/docs#/) once the project is running.
+API documentation is available at [API Docs](https://short-link-c41e08f1537b.herokuapp.com/docs#/) once the project is running.
 
 ## Getting Started
 
@@ -36,7 +36,6 @@ To run the Teddy Short project on your local machine, follow these steps:
 5. **Run Migrations**:  Use `npm run migrate:run` to run migrations.
 6. **Start the Application**: Use `npm run start` to start the application.
 
-You can import all endpoint configurations from the `/docs` folder into Postman for API testing.
 
 ## Testing
 
@@ -55,3 +54,6 @@ The conclusion was to set up a simple yet comprehensive architecture to support 
 - Implement Memcache to be used as a cache database for queries.
 - Switch from TypeORM to DrizzleORM, as it appears to be a more powerful and performant ORM.
 - Set up everything using Terraform or CloudFormation.
+- Add LoadBalancers will help servers handle with many requests
+- Rate Limit - Add rate limit to protect the system against exploitations
+- Add expiration time on every short links to protect database size.
