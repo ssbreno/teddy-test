@@ -50,8 +50,8 @@ npm test
 
 The conclusion was to set up a simple yet comprehensive architecture to support the application's evolution towards something more robust. I would like to highlight some areas for improvement:
 
-Switch the infrastructure to AWS or GCP for better scalability.
-Migrate the database from Heroku to RDS.
-Implement Memcache to be used as a cache database for queries.
-Switch from TypeORM to DrizzleORM, as it appears to be a more powerful and performant ORM.
-Set up everything using Terraform or CloudFormation.
+- Switch the infrastructure to AWS or GCP for better scalability.
+- Migrate the database from Heroku to RDS.
+- Implement Memcache to be used as a cache database for queries.
+- Switch from TypeORM to DrizzleORM, as it appears to be a more powerful and performant ORM.
+- Set up everything using Terraform or CloudFormation.

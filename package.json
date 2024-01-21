@@ -25,7 +25,6 @@
     "doc:serve": "npm run doc && npx @compodoc/compodoc -s",
     "precommit": "lint-staged && npm run lint",
     "prepush": "npm run test",
-    "prepare": "is-ci || husky install",
     "commit": "cz",
     "typeorm": "ts-node ./node_modules/typeorm/cli",
     "migrate:generate": "npm run typeorm -- -d ./orm.config.ts migration:generate ./src/infrastructure/database/migrations/$npm_config_name",
