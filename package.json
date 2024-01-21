@@ -7,7 +7,7 @@
   "license": "ISC",
   "engines": {
     "node": "v20.9.0",
-    "npm": "10.1.0"
+    "npm": "10.3.0"
   },
   "scripts": {
     "build": "nest build",
@@ -66,6 +66,7 @@
     "tsx": "^4.7.0",
     "typeorm": "^0.3.19",
     "uuidv4": "^6.2.13",
+    "typeorm-naming-strategies": "^4.1.0",
     "winston": "^3.11.0"
   },
   "devDependencies": {
@@ -97,7 +98,6 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typeorm-naming-strategies": "^4.1.0",
     "typescript": "^5.3.3"
   }
 }

@@ -23,7 +23,7 @@ RUN npm prune --omit=dev
 # Run stage
 FROM node:18
 
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 
 ENV TZ=America/Sao_Paulo
 
