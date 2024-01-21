@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { ApiBody, ApiTags } from "@nestjs/swagger";
+import { ApiBody, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { LoginDTO } from "../../domain/dto/login.dto";
 import { RefreshTokenDTO } from "../../domain/dto/refresh-token.dto";
 import { User } from "../../domain/entities/user.entity";
@@ -15,18 +15,22 @@ export class AuthController {
   ) {}
 
   @Post("/login")
+  @ApiOperation({ summary: "Login application" })
   @ApiBody({ type: LoginDTO })
   async login(@Body() loginDTO: LoginDTO): Promise<any> {
     return this.loginService.execute(loginDTO);
   }
 
   @Post("/create")
+  @ApiOperation({ summary: "Create user" })
   @ApiBody({ type: LoginDTO })
   async createUser(@Body() createUserDTO: LoginDTO): Promise<User> {
     return this.createUserService.execute(createUserDTO);
   }
 
   @Post("/refresh-token")
+  @ApiBody({ type: RefreshTokenDTO })
+  @ApiOperation({ summary: "Refresh user Token" })
   async refreshToken(@Body() refreshTokenDTO: RefreshTokenDTO) {
     return this.loginService.refreshToken(refreshTokenDTO);
   }

@@ -11,7 +11,7 @@ import {
   Res,
   UseGuards,
 } from "@nestjs/common";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { FastifyReply } from "fastify";
 import { JwtAuthGuard } from "../../../infrastructure/auth/Guards/jwt.guard";
 import { RequestAuthenticated } from "../../../user/domain/types/request-authenticated";
@@ -33,6 +33,7 @@ export class UrlController {
   ) {}
 
   @Post()
+  @ApiOperation({ summary: "Create a short URL" })
   async shortenUrl(
     @Body() createUrlDto: CreateUrlDTO,
     @Req() req: RequestAuthenticated,
@@ -42,6 +43,7 @@ export class UrlController {
   }
 
   @Get(":shortId")
+  @ApiOperation({ summary: "Redirect to Original URL from Short URL" })
   async redirectToOriginal(
     @Param("shortId") shortId: string,
     @Res() res: FastifyReply,
@@ -57,6 +59,7 @@ export class UrlController {
   }
 
   @Get()
+  @ApiOperation({ summary: "Get All urls from user and count" })
   @UseGuards(JwtAuthGuard)
   async getClicks(@Req() req: RequestAuthenticated) {
     const getClicks = await this.getURLFromUserService.execute(req);
@@ -64,6 +67,7 @@ export class UrlController {
   }
 
   @Delete()
+  @ApiOperation({ summary: "Soft Delete on Short URL" })
   @UseGuards(JwtAuthGuard)
   async deleteShortenUrl(@Query("shortUrl") shortUrl: string) {
     const deleteUrl = await this.deleteURLService.execute(shortUrl);
@@ -72,6 +76,7 @@ export class UrlController {
 
   @Put()
   @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: "Update origin url from short url" })
   async updateOriginShortenUrl(@Body() updateUrlDto: UpdateUrlDTO) {
     const updateUrlOrigin = await this.updateURLService.execute(updateUrlDto);
     return updateUrlOrigin;

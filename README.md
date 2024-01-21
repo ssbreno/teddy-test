@@ -1,7 +1,7 @@
 ![image](https://github.com/ssbreno/teddy-test/assets/8092325/cd25cb7f-e423-46f7-868d-d9b9ce102252)
 
 
-[DEV] https://short-link-c41e08f1537b.herokuapp.com/docs
+[DEV] https://short-link-c41e08f1537b.herokuapp.com/api/v1/healthcheck
 
 ## Introduction
 
@@ -23,7 +23,7 @@ Teddy Short Links
 
 ## Documentation
 
-API documentation is available at [Local API Docs](http://localhost:3000/docs) once the project is running.
+API documentation is available at [Local API Docs](https://short-link-c41e08f1537b.herokuapp.com/docs#/) once the project is running.
 
 ## Getting Started
 
