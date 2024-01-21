@@ -1,4 +1,4 @@
-![image](https://github.com/ssbreno/teddy-test/assets/8092325/91048ad1-6f9a-4919-93f4-0231f72ce031)
+![image](https://github.com/ssbreno/teddy-test/assets/8092325/cd25cb7f-e423-46f7-868d-d9b9ce102252)
 
 
 [DEV] https://short-link-c41e08f1537b.herokuapp.com/docs
