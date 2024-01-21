@@ -17,7 +17,7 @@ import { UsersModule } from "./user/user.module";
     TypeOrmModule.forRoot({
       type: "postgres",
       useUTC: true,
-      url: process.env.DATABASE_URL,
+      url: process.env.DB_URL,
       entities: [User, Url],
       synchronize: false,
       logging: false,
