@@ -42,15 +42,15 @@ export class UrlController {
     return { shortenedUrl };
   }
 
-  @Get(":shortId")
+  @Get(":shortUrl")
   @ApiOperation({ summary: "Redirect to Original URL from Short URL" })
   async redirectToOriginal(
-    @Param("shortId") shortId: string,
+    @Param("shortId") shortUrl: string,
     @Res() res: FastifyReply,
   ) {
     const url =
       await this.getURLFromUserService.findByShortUrlAndUpdateClickCount(
-        shortId,
+        shortUrl,
       );
 
     if (url) {

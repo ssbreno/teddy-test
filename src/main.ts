@@ -32,6 +32,18 @@ export const setupSwagger = (app: INestApplication) => {
     .setTitle(PROJECT_NAME)
     .setDescription(PROJECT_DESCRIPTION)
     .setVersion(PROJECT_VERSION)
+    .addTag("Teddy")
+    .addBearerAuth(
+      {
+        description: `Please enter token in following format: 'jwt-token'`,
+        name: "Authorization",
+        bearerFormat: "Bearer",
+        scheme: "Bearer",
+        type: "http",
+        in: "Header",
+      },
+      "access-token",
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, options);

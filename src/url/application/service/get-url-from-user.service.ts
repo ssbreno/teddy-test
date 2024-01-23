@@ -29,9 +29,9 @@ export class GetURLFromUserService {
     }));
   }
 
-  async findByShortUrlAndUpdateClickCount(shortId: string): Promise<Url> {
+  async findByShortUrlAndUpdateClickCount(shortUrl: string): Promise<Url> {
     const url = await this.urlRepository.findOne({
-      where: { shortUrl: shortId },
+      where: { shortUrl: shortUrl },
     });
 
     if (url) {
